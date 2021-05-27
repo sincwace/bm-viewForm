@@ -1,17 +1,14 @@
 <template>
     <div style="padding: 20px;">
-        <view-form :collapseClassName="viewForm.collapseClassName"
+        <bm-view-form :collapseClassName="viewForm.collapseClassName"
 				   :activeNames="viewForm.activeNames"
 				   :data="viewForm.data"
-				   :labelWidth="viewForm.labelWidth"></view-form>
+				   :labelWidth="viewForm.labelWidth"></bm-view-form>
     </div>
 </template>
 
 <script>
-import viewForm from './viewForm'
-
 export default {
-    components: { viewForm },
     data() {
         return {
             viewForm: {

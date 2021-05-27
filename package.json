@@ -12,6 +12,7 @@
 	"dependencies": {
 		"@hyjiacan/vue-ellipsis": "^1.1.0",
 		"babel-polyfill": "^6.26.0",
+		"bm-view-form": "^1.0.0",
 		"element-ui": "^2.12.0",
 		"less": "^2.7.2",
 		"less-loader": "^4.0.4",
