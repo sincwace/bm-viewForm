@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+    <title></title>
+    <link rel="stylesheet" href="https://unpkg.zhimg.com/element-ui/lib/theme-chalk/index.css">
+    <style>
+        ::-webkit-scrollbar {
+            visibility: hidden;
+            width: 0;
+            height: 0;
+        }
+
+        #app-loading-box {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            transition: 1s all linear;
+            background: #fff;
+            z-index: 9999999;
+        }
+
+        #app-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 350px;
+            height: 15px;
+            -webkit-transform: translateY(-50%) translateX(-50%);
+            transform: translateY(-50%) translateX(-50%);
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+        }
+
+        #app-loading .loading {
+            position: relative;
+            top: -2px;
+        }
+    </style>
+    <script>
+        function getIEVersion() {
+            var userAgent = navigator.userAgent;
+            // console.log(userAgent);
+            var isOpera = userAgent.indexOf("Opera") > -1;
+            var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1 && !isOpera;
+            var isEdge = userAgent.indexOf("Edge") > -1 && !isIE;
+            if (isIE || isEdge) {
+                return "IE";
+            }
+        }
+        var ifie = getIEVersion()
+        var linkNode = document.createElement("link")
+        linkNode.setAttribute("rel", "stylesheet");
+        linkNode.setAttribute("type", "text/css");
+        if (ifie == 'IE') {
+            linkNode.setAttribute("href", "/static/ie.css");
+        }
+        document.head.appendChild(linkNode);
+    </script>
+</head>
+
+<body>
+    <!-- loading -->
+    <div id="app-loading-box">
+        <div id="app-loading" style="font-size: 14px!important;">
+            <div style="float: left;line-height: 15px;width: 180px;">
+                后台模块初始化中,请稍后
+            </div>
+            <div style="float: left;height: 15px;width:15px;margin-left: 10px;">
+                <img src="/static/images/loading.gif" style="height: 15px;width:15px;" class="loading" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- 显示区 -->
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+</body>
+
+</html>
